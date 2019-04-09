@@ -4,7 +4,7 @@ contract ERC223Factory {
     address[] public contracts;
     address public lastContractAddress;
     
-    event newERC223Contract (
+    event newERC_223Contract (
        address contractAddress
     );
 
@@ -22,18 +22,18 @@ contract ERC223Factory {
         return contracts.length;
     }
 
-    function newERC223(string name, string symbol)
+    function newERC_223(string name, string symbol)
         public
         returns(address newContract)
     {
-        ERC223 c = new ERC223(name, symbol);
+        ERC_223 c = new ERC_223(name, symbol);
         contracts.push(c);
         lastContractAddress = address(c);
-        emit newERC223Contract(c);
+        emit newERC_223Contract(c);
         return c;
     }
 
-    function seeERC223(uint pos)
+    function seeERC_223(uint pos)
         public
         constant
         returns(address contractAddress)
@@ -214,11 +214,11 @@ contract Ownable {
 
 
 /**
- * @title ERC223
- * @dev ERC223 is an ERC223 Token with ERC20 functions and events
+ * @title ERC_223
+ * @dev ERC_223 is an ERC223 Token with ERC20 functions and events
  *      Fully backward compatible with ERC20
  */
-contract ERC223 is ERC223, Ownable {
+contract ERC_223 is ERC223, Ownable {
     using SafeMath for uint;
 
 
@@ -287,7 +287,7 @@ contract ERC223 is ERC223, Ownable {
 
 
     /**
-     * @dev ERC223 transfer function
+     * @dev ERC_223 transfer function
      * @param _to Address of token receiver
      * @param _value Number of tokens to send
      * @param _data Data equivalent to tx.data from ethereum transaction
